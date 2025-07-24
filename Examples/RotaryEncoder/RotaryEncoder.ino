@@ -1,36 +1,73 @@
-#include "RotaryEncoder.h"
+//Arduino Code - Rotary Encoder w push button
 
-int Counter = 0, LastCount = 0; //uneeded just for test
-void RotaryChanged(); //we need to declare the func above so Rotary goes to the one below
+#include <BfButton.h>
 
-RotaryEncoder Rotary(&RotaryChanged, 2, 3, 4); // Pins 2 (DT), 3 (CLK), 4 (SW)
+int btnPin=4; //GPIO #3-SW Push button on encoder
+int DT=2; //GPIO #4-DT on encoder (Output B)
+int CLK=5; //GPIO #5-CLK on encoder (Output A)
+BfButton btn(BfButton::STANDALONE_DIGITAL, btnPin, true, LOW);
 
-void RotaryChanged()
-{
-  const unsigned int state = Rotary.GetState();
-  
-  if (state & DIR_CW)  
-    Counter++;
-    
-  if (state & DIR_CCW)  
-    Counter--;    
-}
+int counter = 0;
+int angle = 0; 
+int aState;
+int aLastState;  
 
-void setup()
-{
-  Rotary.setup();  
-  Serial.begin(9600);  
-  Serial.println("Rotary Encoder Tests");  
-}
-
-void loop()
-{
-  if (Rotary.GetButtonDown())  
-    Serial.println("Yay button down!!!");    
-
-  if (LastCount != Counter)  
-  {
-    Serial.println(Counter);    
-    LastCount = Counter;    
+//Button press hanlding function
+void pressHandler (BfButton *btn, BfButton::press_pattern_t pattern) {
+  switch (pattern) {
+    case BfButton::SINGLE_PRESS:
+      Serial.println("Single push");
+      break;
+      
+    case BfButton::DOUBLE_PRESS:
+      Serial.println("Double push");
+      break;
+      
+    case BfButton::LONG_PRESS:
+      Serial.println("Long push");
+      break;
   }
+}
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  Serial.println(angle);
+  pinMode(CLK,INPUT_PULLUP);
+  pinMode(DT,INPUT_PULLUP);
+  aLastState = digitalRead(CLK);
+
+  //Button settings
+  btn.onPress(pressHandler)
+  .onDoublePress(pressHandler) // default timeout
+  .onPressFor(pressHandler, 1000); // custom timeout for 1 second
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+  //Wait for button press to execute commands
+  btn.read();
+  
+  aState = digitalRead(CLK);
+
+  //Encoder rotation tracking
+  if (aState != aLastState){     
+     if (digitalRead(DT) != aState) { 
+       counter ++;
+       angle ++;
+     }
+     else {
+       counter--;
+       angle --;
+     }
+     if (counter >=100 ) {
+       counter =100;
+     }
+     if (counter <=-100 ) {
+       counter =-100;
+     }
+     Serial.println(counter); 
+  }   
+  aLastState = aState;
 }
