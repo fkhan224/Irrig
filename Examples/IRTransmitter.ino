@@ -8,6 +8,11 @@
 
 #define ENABLE_LED_FEEDBACK  true
 
+/**
+ * Hardware Needed:
+ * - IR Transmitter
+ */
+
 char cstr[4]; // 32 bit array to store char array
 
 // Initialize the display 

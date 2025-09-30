@@ -2,6 +2,11 @@
 
 #include <BfButton.h>
 
+/**
+ * Hardware Needed:
+ * - Rotary Encoder w/ push button
+ */
+
 int btnPin=4; //GPIO #3-SW Push button on encoder
 int DT=2; //GPIO #4-DT on encoder (Output B)
 int CLK=5; //GPIO #5-CLK on encoder (Output A)
