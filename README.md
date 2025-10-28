@@ -1,6 +1,5 @@
 # Irrig — Smart Irrigation System
-
-Irrig is a smart irrigation system that holds a plant or terrarium in its casing. The system will use a moisture, or hydration sensor, to track the water content and turn on a water pump when the moisture levels drop below an environment-specific threshold tailored for specific plants. This product would be suitable for terrestrial plants (plants that grow in or from land/soil), and lithophytic plants (plants that grow on rocks or tree bark). 
+Irrig is a smart irrigation system designed to hold a plant or terrarium in its casing. It automatically waters the plant using moisture sensors that monitor soil hydration and activate a water pump whenever the moisture level drops too low.
 
 <p align="center">
   <img src="docs/IrrigScreen.png" alt="Irrig Prototype" width="400"/>
