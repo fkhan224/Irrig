@@ -20,5 +20,5 @@ An OLED display will show the moisture contents on a graph with respect to time 
 
 ---
 
-**Developers:**  
+**POp:**  
 Fariha Khan, Ren Ellis, Chris Morgado
