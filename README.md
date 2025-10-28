@@ -23,5 +23,5 @@ In future designs, multiple Irrig “cells” will be able to be connected wirel
 
 ---
 
-**Authors:**  
+**Developers:**  
 Fariha Khan, Ren Ellis, Chris Morgado
