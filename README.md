@@ -17,7 +17,7 @@ An OLED display will show the moisture contents on a graph with respect to time 
 In future designs, multiple Irrig “cells” will be able to be connected wirelessly by placing them next to each other and will be able to transmit and receive data through infrared or wired I2C communication. The neighboring screenless “dummy cells” will be able to have their plant’s parameters programmed through a singular “smart cell”.
 
 <p align="center">
-  <img src="docs/IrrigFull.jpg" alt="Irrig Prototype" width="400"/>
+  <img src="docs/IrrigFull.jpg" alt="Irrig Prototype" width="600"/>
 </p>
 
 ---
