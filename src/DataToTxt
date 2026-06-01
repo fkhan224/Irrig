@@ -1,0 +1,11 @@
+import serial
+import time
+
+with serial.Serial('COM3', 115200) as port:
+    while True:
+        rcv = port.readline()   # read data until newline is reached
+        value = (rcv)   # send data to tuple format
+        myString = str(value)
+        with open("data\calibration_data.txt","a") as data_file:    # append mode
+            data_file.write(myString[2:6] + "\n")  # turns b'2517\r\n' into 2517
+            time.sleep(1800)    # wait 30 min before logging next value
