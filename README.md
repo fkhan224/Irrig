@@ -1,4 +1,4 @@
-# Irrig — Smart Irrigation System
+# Irrig (Smart Irrigation System)
 Irrig is a smart irrigation system designed to hold a plant or terrarium in its casing. It automatically waters the plant using moisture sensors that monitor soil hydration and activate a water pump whenever the moisture level drops too low.
 
 <p align="center">
