@@ -7,8 +7,8 @@
  * - Rotary Encoder w/ push button
  */
 
-int btnPin=4; //GPIO #3-SW Push button on encoder
-int DT=2; //GPIO #4-DT on encoder (Output B)
+int btnPin=4; //GPIO #4-SW Push button on encoder
+int DT=2; //GPIO #2-DT on encoder (Output B)
 int CLK=5; //GPIO #5-CLK on encoder (Output A)
 BfButton btn(BfButton::STANDALONE_DIGITAL, btnPin, true, LOW);
 
